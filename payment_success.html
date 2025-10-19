@@ -1,18 +1,123 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <title>Payment Success</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Payment Successful - GoCuci</title>
+
   <style>
-    body { font-family: sans-serif; text-align: center; margin-top: 100px; }
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: "Poppins", sans-serif;
+      height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: linear-gradient(135deg, #0D47A1, #1976D2, #7E57C2, #FFFFFF);
+      background-size: 400% 400%;
+      animation: gradient 10s ease infinite;
+      color: #fff;
+      text-align: center;
+    }
+
+    @keyframes gradient {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+
+    .card {
+      background: rgba(255, 255, 255, 0.15);
+      backdrop-filter: blur(15px);
+      padding: 40px 30px;
+      border-radius: 20px;
+      box-shadow: 0 8px 25px rgba(0,0,0,0.3);
+      max-width: 400px;
+      width: 90%;
+    }
+
+    .checkmark {
+      width: 80px;
+      height: 80px;
+      border-radius: 50%;
+      display: inline-block;
+      border: 3px solid #4CAF50;
+      position: relative;
+      animation: pop 0.5s ease-out;
+      margin-bottom: 20px;
+    }
+
+    .checkmark::after {
+      content: '';
+      position: absolute;
+      left: 20px;
+      top: 40px;
+      width: 20px;
+      height: 40px;
+      border-right: 4px solid #4CAF50;
+      border-bottom: 4px solid #4CAF50;
+      transform: rotate(45deg);
+      animation: draw 0.8s ease forwards;
+    }
+
+    @keyframes draw {
+      from { opacity: 0; transform: scale(0.8) rotate(45deg); }
+      to { opacity: 1; transform: scale(1) rotate(45deg); }
+    }
+
+    @keyframes pop {
+      0% { transform: scale(0.5); opacity: 0; }
+      100% { transform: scale(1); opacity: 1; }
+    }
+
+    h1 {
+      font-size: 24px;
+      margin-bottom: 10px;
+      letter-spacing: 1px;
+    }
+
+    p {
+      color: #E0E0E0;
+      font-size: 16px;
+      line-height: 1.5;
+      margin-bottom: 30px;
+    }
+
+    .btn {
+      display: inline-block;
+      background: #4CAF50;
+      color: #fff;
+      padding: 12px 25px;
+      border-radius: 8px;
+      text-decoration: none;
+      font-weight: 600;
+      transition: background 0.3s ease;
+    }
+
+    .btn:hover {
+      background: #43A047;
+    }
+
+    .logo {
+      width: 80px;
+      height: 80px;
+      object-fit: contain;
+      margin-bottom: 10px;
+      border-radius: 50%;
+      background: rgba(255,255,255,0.2);
+      padding: 10px;
+    }
   </style>
 </head>
+
 <body>
-  <h2>✅ Payment Successful!</h2>
-  <p>You may now return to the GoCuci app.</p>
-  <script>
-    // Optional deep link back into the Flutter app
-    window.location.href = "gocuci://payment_success";
-  </script>
+  <div class="card">
+    <img src="https://i.ibb.co/jV4z4cT/gocuci-logo.png" alt="GoCuci Logo" class="logo" />
+    <div class="checkmark"></div>
+    <h1>Payment Successful!</h1>
+    <p>Thank you for your deposit. Your GoCuci booking has been confirmed successfully.</p>
+    <a href="gocuci://app/home" class="btn">Return to App</a>
+  </div>
 </body>
 </html>
